@@ -1,0 +1,477 @@
+/* =========================================================
+   EMBER SOFRASI — DİJİTAL MENÜ STİL DOSYASI
+   Tasarım dili: koyu kor/oxblood kırmızı zemin + altın vurgular
+   Tipografi: Fraunces (başlıklar) + Inter (gövde metni / arayüz)
+   ========================================================= */
+
+/* ---------- 1. TASARIM TOKENLARI (Renk / Tipografi / Boşluk) ---------- */
+:root {
+  /* Renkler */
+  --color-bg: #180f0d;              /* ana zemin: derin, sıcak kömür-siyahı */
+  --color-bg-soft: #211512;         /* biraz daha açık zemin (bölüm ayrımı için) */
+  --color-surface: #261815;         /* ürün kartı yüzeyi */
+  --color-surface-hover: #2e1d19;   /* kart hover durumu */
+  --color-oxblood: #7c1f17;         /* ana kırmızı (koyu/oxblood) */
+  --color-oxblood-light: #9c2c20;   /* buton hover kırmızısı */
+  --color-ember: #c7301f;           /* canlı vurgu kırmızısı (az kullanılır) */
+  --color-gold: #c9a24b;            /* altın vurgu */
+  --color-gold-soft: #c9a24b66;     /* yarı saydam altın (çizgiler için) */
+  --color-cream: #f4ece0;           /* ana metin rengi (koyu zeminde) */
+  --color-cream-dim: #cdbeae;       /* ikincil metin rengi */
+  --color-line: #3a2620;            /* ince ayraç çizgisi */
+
+  /* Tipografi */
+  --font-display: "Fraunces", Georgia, serif;
+  --font-body: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+
+  /* Boşluk / ölçek */
+  --radius-card: 14px;
+  --radius-btn: 999px;
+  --max-width: 1100px;
+
+  /* Dokunmatik hedef minimum boyutu */
+  --touch-target: 48px;
+}
+
+/* ---------- 2. TEMEL SIFIRLAMA ---------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth; /* kategori linklerinde smooth scroll için */
+}
+
+body {
+  background-color: var(--color-bg);
+  color: var(--color-cream);
+  font-family: var(--font-body);
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font-family: inherit;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+/* Hareket azaltma tercihine saygı */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+/* Klavye ile gezinen kullanıcılar için görünür odak halkası */
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--color-gold);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* =========================================================
+   3. ANA SAYFA
+   ========================================================= */
+.hero {
+  position: relative;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 32px 24px;
+  overflow: hidden;
+}
+
+/* Arka planda hafif, yavaş nefes alan kor parıltısı — tek, kontrollü hareket */
+.hero-glow {
+  position: absolute;
+  inset: -20%;
+  background:
+    radial-gradient(circle at 50% 30%, rgba(124, 31, 23, 0.55), transparent 55%),
+    radial-gradient(circle at 20% 80%, rgba(201, 162, 75, 0.12), transparent 50%);
+  filter: blur(10px);
+  animation: emberBreathe 8s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes emberBreathe {
+  0%, 100% { opacity: 0.75; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.05); }
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  max-width: 480px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.brand-mark {
+  width: 56px;
+  height: 56px;
+  margin-bottom: 18px;
+  color: var(--color-gold);
+}
+
+.flame-icon {
+  width: 100%;
+  height: 100%;
+  fill: currentColor;
+}
+
+.brand-name {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(2.4rem, 9vw, 3.4rem);
+  letter-spacing: 0.01em;
+  color: var(--color-cream);
+}
+
+.brand-tagline {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 400;
+  font-size: 1.15rem;
+  color: var(--color-gold);
+  margin-top: 6px;
+}
+
+.hero-desc {
+  margin-top: 22px;
+  font-size: 1rem;
+  color: var(--color-cream-dim);
+  line-height: 1.7;
+}
+
+.hero-footnote {
+  position: relative;
+  z-index: 1;
+  margin-top: 40px;
+  font-family: var(--font-display);
+  font-style: italic;
+  color: var(--color-cream-dim);
+  opacity: 0.6;
+  font-size: 0.95rem;
+}
+
+/* ---------- Butonlar ---------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: var(--touch-target);
+  padding: 0 34px;
+  margin-top: 34px;
+  border-radius: var(--radius-btn);
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 1rem;
+  letter-spacing: 0.01em;
+  transition: transform 0.18s ease, background-color 0.18s ease, box-shadow 0.18s ease;
+}
+
+.btn-primary {
+  background-color: var(--color-oxblood);
+  color: var(--color-cream);
+  border: 1px solid var(--color-gold-soft);
+  box-shadow: 0 8px 24px rgba(124, 31, 23, 0.35);
+}
+
+.btn-primary:hover,
+.btn-primary:focus-visible {
+  background-color: var(--color-oxblood-light);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 28px rgba(124, 31, 23, 0.45);
+}
+
+.btn-primary:active {
+  transform: translateY(0);
+}
+
+/* =========================================================
+   4. MENÜ SAYFASI — ÜST BAR
+   ========================================================= */
+.menu-topbar {
+  padding: 18px 24px 10px;
+  text-align: center;
+}
+
+.topbar-brand {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.3rem;
+  color: var(--color-cream);
+}
+
+/* ---------- Kategori navigasyonu: yatay, sticky, kaydırılabilir ---------- */
+.category-nav {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background-color: var(--color-bg);
+  border-bottom: 1px solid var(--color-line);
+  padding: 10px 0;
+}
+
+.category-nav-scroll {
+  display: flex;
+  gap: 10px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  padding: 4px 16px;
+  /* Mobil tarayıcılarda kaydırma çubuğunu gizle */
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.category-nav-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+.category-btn {
+  flex: 0 0 auto;
+  min-height: var(--touch-target);
+  padding: 0 20px;
+  border-radius: var(--radius-btn);
+  border: 1px solid var(--color-line);
+  background-color: var(--color-bg-soft);
+  color: var(--color-cream-dim);
+  font-size: 0.92rem;
+  font-weight: 500;
+  white-space: nowrap;
+  transition: background-color 0.18s ease, color 0.18s ease, border-color 0.18s ease;
+}
+
+.category-btn:hover {
+  border-color: var(--color-gold-soft);
+  color: var(--color-cream);
+}
+
+.category-btn.is-active {
+  background-color: var(--color-oxblood);
+  border-color: var(--color-oxblood);
+  color: var(--color-cream);
+}
+
+/* =========================================================
+   5. MENÜ İÇERİĞİ — KATEGORİ BÖLÜMLERİ VE ÜRÜN KARTLARI
+   ========================================================= */
+.menu-content {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 8px 20px 40px;
+}
+
+.category-section {
+  padding-top: 44px;
+  padding-bottom: 12px;
+  /* sticky üst bara takılmaması için kaydırma hedefine pay bırak */
+  scroll-margin-top: 78px;
+  border-bottom: 1px solid var(--color-line);
+}
+
+.category-section:last-of-type {
+  border-bottom: none;
+}
+
+.category-heading {
+  margin-bottom: 22px;
+}
+
+.category-heading h2 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(1.6rem, 5vw, 2rem);
+  color: var(--color-cream);
+}
+
+.category-sub {
+  margin-top: 4px;
+  font-size: 0.92rem;
+  color: var(--color-gold);
+  font-family: var(--font-display);
+  font-style: italic;
+}
+
+/* ---------- Ürün ızgarası ---------- */
+.product-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 18px;
+  padding-bottom: 8px;
+}
+
+@media (min-width: 620px) {
+  .product-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 960px) {
+  .product-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* ---------- Ürün kartı ---------- */
+.product-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-card);
+  padding: 22px 18px 20px;
+  /* Fare ile kullanılan cihazlarda kartın büyüyeceği nokta kartın
+     kendisi değil, alt tarafı olsun diye transform-origin ayarlanır */
+  transform-origin: center bottom;
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+              border-color 0.35s ease,
+              background-color 0.35s ease,
+              box-shadow 0.35s ease;
+}
+
+/* Fare/imleçle gezinen cihazlarda: kart belirgin şekilde büyür,
+   altın bir parıltı kazanır. Dokunmatik cihazlarda (telefon/QR menü)
+   hover kalıcı takılı kalabileceği için bu efekt yalnızca gerçek
+   hover desteği olan cihazlarda çalışır — mobil deneyimi etkilemez. */
+@media (hover: hover) and (pointer: fine) {
+  .product-card {
+    cursor: default;
+  }
+
+  .product-card:hover,
+  .product-card:focus-within {
+    transform: scale(1.07) translateY(-6px);
+    z-index: 2;
+    border-color: var(--color-gold);
+    background-color: var(--color-surface-hover);
+    box-shadow: 0 18px 36px rgba(0, 0, 0, 0.45), 0 0 0 1px var(--color-gold-soft);
+  }
+
+  .product-card:hover .product-photo,
+  .product-card:focus-within .product-photo {
+    transform: scale(1.1) rotate(-4deg);
+    box-shadow: 0 0 0 5px var(--color-gold-soft), 0 10px 22px rgba(0, 0, 0, 0.4);
+  }
+
+  .product-card:hover .product-name,
+  .product-card:focus-within .product-name {
+    color: var(--color-gold);
+  }
+
+  .product-card:hover .product-desc,
+  .product-card:focus-within .product-desc {
+    color: var(--color-cream);
+  }
+}
+
+/* Ürün görseli: yuvarlak "rozet" biçiminde. images/ klasöründeki
+   .svg ikonları kendi fotoğraflarınızla değiştirirken bu daire kırpma
+   otomatik uygulanır — sadece kare/dikdörtgen bir fotoğrafı aynı
+   dosya adıyla (örn. cheeseburger.jpg) değiştirmeniz yeterli, kod
+   tarafında ekstra bir işlem gerekmez. */
+.product-photo {
+  width: 110px;
+  height: 110px;
+  flex: 0 0 auto;
+  border-radius: 50%;
+  overflow: hidden;
+  background-color: var(--color-bg-soft);
+  border: 1px solid var(--color-line);
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.35s ease;
+}
+
+.product-photo img,
+.product-photo svg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.product-info {
+  margin-top: 14px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  width: 100%;
+}
+
+.product-top {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.product-name {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 1.08rem;
+  color: var(--color-cream);
+  transition: color 0.3s ease;
+}
+
+.product-price {
+  flex: 0 0 auto;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 0.98rem;
+  color: var(--color-gold);
+  white-space: nowrap;
+}
+
+.product-desc {
+  font-size: 0.9rem;
+  color: var(--color-cream-dim);
+  line-height: 1.6;
+  transition: color 0.3s ease;
+}
+
+/* ---------- Alt bilgi ---------- */
+.menu-footer {
+  text-align: center;
+  padding: 28px 20px 44px;
+  font-family: var(--font-display);
+  font-style: italic;
+  color: var(--color-cream-dim);
+  opacity: 0.65;
+  font-size: 0.9rem;
+}
+
+/* =========================================================
+   6. KÜÇÜK EKRAN İNCE AYARLARI (QR ile açılan telefonlar için)
+   ========================================================= */
+@media (max-width: 380px) {
+  .brand-name {
+    font-size: 2.1rem;
+  }
+  .menu-content {
+    padding-left: 14px;
+    padding-right: 14px;
+  }
+}

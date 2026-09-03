@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+  <title>Ember Sofrası | Menü</title>
+  <meta name="description" content="Ember Sofrası dijital menüsü — içecekler, ızgaralar, burgerler, tatlılar ve pizzalar." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="menu-page">
+
+  <!-- ÜST BAR: Küçük marka başlığı + anasayfaya dönüş -->
+  <header class="menu-topbar">
+    <a href="index.html" class="topbar-brand">Ember Sofrası</a>
+  </header>
+
+  <!-- KATEGORİ NAVİGASYONU: yatay, mobilde kaydırılabilir, sticky -->
+  <nav class="category-nav" aria-label="Menü kategorileri">
+    <div class="category-nav-scroll">
+      <button class="category-btn is-active" data-target="icecekler">İçecekler</button>
+      <button class="category-btn" data-target="izgaralar">Izgaralar</button>
+      <button class="category-btn" data-target="burgerler">Burgerler</button>
+      <button class="category-btn" data-target="tatlilar">Tatlılar</button>
+      <button class="category-btn" data-target="pizzalar">Pizzalar</button>
+    </div>
+  </nav>
+
+  <main class="menu-content">
+
+    <!-- ============ İÇECEKLER ============ -->
+    <section id="icecekler" class="category-section">
+      <div class="category-heading">
+        <h2>İçecekler</h2>
+        <p class="category-sub">Ferahlatan ve sıcak seçenekler</p>
+      </div>
+
+      <div class="product-grid">
+
+        <article class="product-card">
+          <div class="product-photo">
+            <img src="images/ayran.svg" alt="Ayran" loading="lazy" />
+          </div>
+          <div class="product-info">
+            <div class="product-top">
+              <h3 class="product-name">Ayran</h3>
+              <span class="product-price">45 TL</span>
+            </div>
+            <p class="product-desc">Ev yapımı yoğurt, tuz, buz.</p>
+          </div>
+        </article>
+
+        <article class="product-card">
+          <div class="product-photo">
+            <img src="images/kola.svg" alt="Kola" loading="lazy" />
+          </div>
+          <div class="product-info">
+            <div class="product-top">
+              <h3 class="product-name">Kola</h3>
+              <span class="product-price">60 TL</span>
+            </div>
+            <p class="product-desc">330 ml kutu içecek.</p>
+          </div>
+        </article>
+
+        <article class="product-card">
+          <div class="product-photo">
+            <img src="images/portakal-suyu.svg" alt="Taze Sıkılmış Portakal Suyu" loading="lazy" />
+          </div>
+          <div class="product-info">
+            <div class="product-top">
+              <h3 class="product-name">Taze Sıkılmış Portakal Suyu</h3>
+              <span class="product-price">75 TL</span>
+            </div>
+            <p class="product-desc">Mevsim portakalından, anında sıkılır.</p>
+          </div>
+        </article>
+
+        <article class="product-card">
+          <div class="product-photo">
+            <img src="images/turk-kahvesi.svg" alt="Türk Kahvesi" loading="lazy" />
+          </div>
+          <div class="product-info">
+            <div class="product-top">
+              <h3 class="product-name">Türk Kahvesi</h3>
+              <span class="product-price">65 TL</span>
+            </div>
+            <p class="product-desc">Sade, orta veya şekerli pişirilir, lokum eşliğinde.</p>
+          </div>
+        </article>
+
+        <article class="product-card">
+          <div class="product-photo">
+            <img src="images/limonata.svg" alt="Limonata" loading="lazy" />
+          </div>
+          <div class="product-info">
+            <div class="product-top">
+              <h3 class="product-name">Limonata</h3>
+              <span class="product-price">70 TL</span>
+            </div>
+            <p class="product-desc">Taze limon, nane ve soda.</p>
+          </div>
+        </article>
+
+        <article class="product-card">
+          <div class="product-photo">
+            <img src="images/maden-suyu.svg" alt="Maden Suyu" loading="lazy" />
+          </div>
+          <div class="product-info">
+            <div class="product-top">
+              <h3 class="product-name">Maden Suyu</h3>
+              <span class="product-price">40 TL</span>
+            </div>
+            <p class="product-desc">200 ml, doğal kaynak suyu.</p>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- ============ IZGARALAR ============ -->
+    <section id="izgaralar" class="category-section">
+      <div class="category-heading">
+        <h2>Izgaralar</h2>
+        <p class="category-sub">Kömür ateşinde, geleneksel usul</p>
+      </div>
+
+      <div class="product-grid">
+
+        <article class="product-card">
+          <div class="product-photo">
+            <img src="images/adana-kebap.svg" alt="Adana Kebap" loading="lazy" />
+          </div>
+          <div class="product-info">
+            <div class="product-top">
+              <h3 class="product-name">Adana Kebap</h3>
+              <span class="product-price">340 TL</span>
+            </div>
+            <p class="product-desc">Dana/kuzu eti, közlenmiş biber, domates, pilav, lavaş.</p>
+          </div>
+        </article>
+
+        <article class="product-card">
+          <div class="product-photo">
+            <img src="images/urfa-kebap.svg" alt="Urfa Kebap" loading="lazy" />
+          </div>
+          <div class="product-info">
+            <div class="product-top">
+              <h3 class="product-name">Urfa Kebap</h3>
+              <span class="product-price">340 TL</span>
+            </div>
+            <p class="product-desc">Acısız kıyma kebabı, közlenmiş sebze, pilav.</p>
+          </div>
+        </article>
+
+        <article class="product-card">
+          <div class="product-photo">
+            <img src="images/kuzu-pirzola.svg" alt="Kuzu Pirzola" loading="lazy" />
+          </div>
+          <div class="product-info">
+            <div class="product-top">
+              <h3 class="product-name">Kuzu Pirzola</h3>
+              <span class="product-price">480 TL</span>
+            </div>
+            <p class="product-desc">Izgara kuzu pirzola, közlenmiş sebzeler, roka salatası.</p>
+          </div>
+        </article>
+
+        <article class="product-card">
+          <div class="product-photo">
+            <img src="images/tavuk-sis.svg" alt="Tavuk Şiş" loading="lazy" />
+          </div>
+          <div class="product-info">
+            <div class="product-top">
+              <h3 class="product-name">Tavuk Şiş</h3>
+              <span class="product-price">290 TL</span>
+            </div>
+            <p class="product-desc">Marine edilmiş tavuk göğsü, biber, domates, pilav.</p>
+          </div>
+        </article>
+
+        <article class="product-card">
+          <div class="product-photo">
+            <img src="images/karisik-izgara.svg" alt="Karışık Izgara" loading="lazy" />
+          </div>
+          <div class="product-info">
+            <div class="product-top">
+              <h3 class="product-name">Karışık Izgara</h3>
+              <span class="product-price">520 TL</span>
+            </div>
+            <p class="product-desc">Adana, pirzola ve tavuk şiş bir arada, közlenmiş sebze.</p>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- ============ BURGERLER ============ -->
+    <section id="burgerler" class="category-section">
+      <div class="category-heading">
+        <h2>Burgerler</h2>
+        <p class="category-sub">El yapımı köfte, günlük ekmek</p>
+      </div>
+
+      <div class="product-grid">
+
+        <article class="product-card">
+          <div class="product-photo">
+            <img src="images/cheeseburger.svg" alt="Cheeseburger" loading="lazy" />
+          </div>
+          <div class="product-info">
+            <div class="product-top">
+              <h3 class="product-name">Cheeseburger</h3>
+              <span class="product-price">280 TL</span>
+            </div>
+            <p class="product-desc">Dana eti, cheddar peyniri, marul, domates, özel sos.</p>
+          </div>
+        </article>
+
+        <article class="product-card">
+          <div class="product-photo">
+            <img src="images/klasik-burger.svg" alt="Klasik Burger" loading="lazy" />
+          </div>
+          <div class="product-info">
+            <div class="product-top">
+              <h3 class="product-name">Klasik Burger</h3>
+              <span class="product-price">260 TL</span>
+            </div>
+            <p class="product-desc">Dana köfte, marul, domates, turşu, ketçap-hardal.</p>
+          </div>
+        </article>
+
+        <article class="product-card">
+          <div class="product-photo">
+            <img src="images/bbq-bacon-burger.svg" alt="BBQ Bacon Burger" loading="lazy" />
+          </div>
+          <div class="product-info">
+            <div class="product-top">
+              <h3 class="product-name">BBQ Bacon Burger</h3>
+              <span class="product-price">320 TL</span>
+            </div>
+            <p class="product-desc">Dana köfte, dana pastırma, cheddar, BBQ sos, soğan halkası.</p>
+          </div>
+        </article>
+
+        <article class="product-card">
+          <div class="product-photo">
+            <img src="images/mantar-burger.svg" alt="Mantar Burger" loading="lazy" />
+          </div>
+          <div class="product-info">
+            <div class="product-top">
+              <h3 class="product-name">Mantar Burger</h3>
+              <span class="product-price">310 TL</span>
+            </div>
+            <p class="product-desc">Dana köfte, karamelize mantar, füme peynir, trüf mayonez.</p>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- ============ TATLILAR ============ -->
+    <section id="tatlilar" class="category-section">
+      <div class="category-heading">
+        <h2>Tatlılar</h2>
+        <p class="category-sub">Sofranın son dokunuşu</p>
+      </div>
+
+      <div class="product-grid">
+
+        <article class="product-card">
+          <div class="product-photo">
+            <img src="images/baklava.svg" alt="Baklava" loading="lazy" />
+          </div>
+          <div class="product-info">
+            <div class="product-top">
+              <h3 class="product-name">Baklava</h3>
+              <span class="product-price">180 TL</span>
+            </div>
+            <p class="product-desc">Antep fıstıklı, ince yufka, hafif şerbetli.</p>
+          </div>
+        </article>
+
+        <article class="product-card">
+          <div class="product-photo">
+            <img src="images/kunefe.svg" alt="Künefe" loading="lazy" />
+          </div>
+          <div class="product-info">
+            <div class="product-top">
+              <h3 class="product-name">Künefe</h3>
+              <span class="product-price">200 TL</span>
+            </div>
+            <p class="product-desc">Sıcak servis, kaymaklı, fıstıklı.</p>
+          </div>
+        </article>
+
+        <article class="product-card">
+          <div class="product-photo">
+            <img src="images/sufle.svg" alt="Sufle" loading="lazy" />
+          </div>
+          <div class="product-info">
+            <div class="product-top">
+              <h3 class="product-name">Sufle</h3>
+              <span class="product-price">190 TL</span>
+            </div>
+            <p class="product-desc">Sıcak çikolatalı sufle, vanilyalı dondurma eşliğinde.</p>
+          </div>
+        </article>
+
+        <article class="product-card">
+          <div class="product-photo">
+            <img src="images/kazandibi.svg" alt="Kazandibi" loading="lazy" />
+          </div>
+          <div class="product-info">
+            <div class="product-top">
+              <h3 class="product-name">Kazandibi</h3>
+              <span class="product-price">150 TL</span>
+            </div>
+            <p class="product-desc">Geleneksel süt tatlısı, karamelize taban.</p>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- ============ PİZZALAR ============ -->
+    <section id="pizzalar" class="category-section">
+      <div class="category-heading">
+        <h2>Pizzalar</h2>
+        <p class="category-sub">Taş fırında, ince hamur</p>
+      </div>
+
+      <div class="product-grid">
+
+        <article class="product-card">
+          <div class="product-photo">
+            <img src="images/margherita.svg" alt="Margherita" loading="lazy" />
+          </div>
+          <div class="product-info">
+            <div class="product-top">
+              <h3 class="product-name">Margherita</h3>
+              <span class="product-price">240 TL</span>
+            </div>
+            <p class="product-desc">Domates sos, mozzarella, taze fesleğen.</p>
+          </div>
+        </article>
+
+        <article class="product-card">
+          <div class="product-photo">
+            <img src="images/sucuklu-pizza.svg" alt="Sucuklu Pizza" loading="lazy" />
+          </div>
+          <div class="product-info">
+            <div class="product-top">
+              <h3 class="product-name">Sucuklu Pizza</h3>
+              <span class="product-price">280 TL</span>
+            </div>
+            <p class="product-desc">Domates sos, mozzarella, kangal sucuk.</p>
+          </div>
+        </article>
+
+        <article class="product-card">
+          <div class="product-photo">
+            <img src="images/karisik-pizza.svg" alt="Karışık Pizza" loading="lazy" />
+          </div>
+          <div class="product-info">
+            <div class="product-top">
+              <h3 class="product-name">Karışık Pizza</h3>
+              <span class="product-price">300 TL</span>
+            </div>
+            <p class="product-desc">Sucuk, sosis, mantar, biber, zeytin.</p>
+          </div>
+        </article>
+
+        <article class="product-card">
+          <div class="product-photo">
+            <img src="images/truffle-pizza.svg" alt="Truffle Pizza" loading="lazy" />
+          </div>
+          <div class="product-info">
+            <div class="product-top">
+              <h3 class="product-name">Truffle Pizza</h3>
+              <span class="product-price">340 TL</span>
+            </div>
+            <p class="product-desc">Beyaz sos, mantar, trüf yağı, parmesan.</p>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="menu-footer">
+    <p>Ember Sofrası — Afiyet olsun.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
